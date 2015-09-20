@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ServerApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Map" Type="System.String" Scope="User">
+      <Value Profile="(Default)">KF-BurningParis</Value>
+    </Setting>
+    <Setting Name="Diff" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Hard</Value>
+    </Setting>
+    <Setting Name="Lenght" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10 Waves - Long game</Value>
+    </Setting>
+    <Setting Name="QPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">27015</Value>
+    </Setting>
+    <Setting Name="Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">7777</Value>
+    </Setting>
+    <Setting Name="WAPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8080</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

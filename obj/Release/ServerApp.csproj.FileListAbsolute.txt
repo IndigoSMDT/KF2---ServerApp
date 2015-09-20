@@ -1,0 +1,11 @@
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\bin\Release\ServerApp.exe.config
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\bin\Release\ServerApp.exe
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\bin\Release\ServerApp.pdb
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\obj\Release\ServerApp.Properties.Resources.resources
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\obj\Release\ServerApp.csproj.GenerateResource.Cache
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\obj\Release\ServerApp.exe
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\obj\Release\ServerApp.pdb
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\obj\Release\ServerApp.csprojResolveAssemblyReference.cache
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\obj\Release\ServerApp.fmServerApp.resources
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\bin\Release\Ionic.Zip.dll
+C:\Users\Indigo\documents\visual studio 2015\Projects\ServerApp\ServerApp\bin\Release\Ionic.Zip.xml
