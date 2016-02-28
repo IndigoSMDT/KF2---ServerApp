@@ -79,11 +79,16 @@
             this.labelPass = new System.Windows.Forms.Label();
             this.textBoxPass = new System.Windows.Forms.TextBox();
             this.comboBoxLen = new System.Windows.Forms.ComboBox();
+            this.comboBoxDiff = new System.Windows.Forms.ComboBox();
+            this.comboBoxMap = new System.Windows.Forms.ComboBox();
             this.labelMap = new System.Windows.Forms.Label();
             this.labelLen = new System.Windows.Forms.Label();
             this.labelDiff = new System.Windows.Forms.Label();
             this.buttonWebAdmin = new System.Windows.Forms.Button();
             this.groupBoxPorts = new System.Windows.Forms.GroupBox();
+            this.textBoxWB = new System.Windows.Forms.TextBox();
+            this.textBoxQP = new System.Windows.Forms.TextBox();
+            this.textBoxPort = new System.Windows.Forms.TextBox();
             this.labelWebAdminPort = new System.Windows.Forms.Label();
             this.labelQueryPort = new System.Windows.Forms.Label();
             this.labelPort = new System.Windows.Forms.Label();
@@ -91,11 +96,6 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonStop = new System.Windows.Forms.Button();
             this.tabSA = new System.Windows.Forms.TabControl();
-            this.comboBoxDiff = new System.Windows.Forms.ComboBox();
-            this.comboBoxMap = new System.Windows.Forms.ComboBox();
-            this.textBoxWB = new System.Windows.Forms.TextBox();
-            this.textBoxQP = new System.Windows.Forms.TextBox();
-            this.textBoxPort = new System.Windows.Forms.TextBox();
             this.contextMenuStripNotifyIcon.SuspendLayout();
             this.tabSett.SuspendLayout();
             this.groupBoxMap.SuspendLayout();
@@ -223,6 +223,7 @@
             this.buttonBrowsMap.TabIndex = 4;
             this.buttonBrowsMap.Text = "Browse Map";
             this.buttonBrowsMap.UseVisualStyleBackColor = true;
+            this.buttonBrowsMap.Visible = false;
             this.buttonBrowsMap.Click += new System.EventHandler(this.buttonBrowsMap_Click);
             // 
             // buttonAddMap
@@ -522,7 +523,7 @@
             // labelCPUu
             // 
             this.labelCPUu.AutoSize = true;
-            this.labelCPUu.Location = new System.Drawing.Point(344, 285);
+            this.labelCPUu.Location = new System.Drawing.Point(324, 285);
             this.labelCPUu.Name = "labelCPUu";
             this.labelCPUu.Size = new System.Drawing.Size(83, 13);
             this.labelCPUu.TabIndex = 6;
@@ -531,7 +532,7 @@
             // labelRamU
             // 
             this.labelRamU.AutoSize = true;
-            this.labelRamU.Location = new System.Drawing.Point(344, 300);
+            this.labelRamU.Location = new System.Drawing.Point(324, 300);
             this.labelRamU.Name = "labelRamU";
             this.labelRamU.Size = new System.Drawing.Size(113, 13);
             this.labelRamU.TabIndex = 6;
@@ -541,14 +542,14 @@
             // 
             this.progressBarRAM.Location = new System.Drawing.Point(6, 300);
             this.progressBarRAM.Name = "progressBarRAM";
-            this.progressBarRAM.Size = new System.Drawing.Size(332, 12);
+            this.progressBarRAM.Size = new System.Drawing.Size(312, 12);
             this.progressBarRAM.TabIndex = 5;
             // 
             // progressBarCPU
             // 
             this.progressBarCPU.Location = new System.Drawing.Point(6, 286);
             this.progressBarCPU.Name = "progressBarCPU";
-            this.progressBarCPU.Size = new System.Drawing.Size(332, 12);
+            this.progressBarCPU.Size = new System.Drawing.Size(312, 12);
             this.progressBarCPU.Step = 1;
             this.progressBarCPU.TabIndex = 5;
             // 
@@ -599,6 +600,32 @@
             this.comboBoxLen.Size = new System.Drawing.Size(138, 21);
             this.comboBoxLen.TabIndex = 7;
             this.comboBoxLen.Text = global::ServerApp.Properties.Settings.Default.Lenght;
+            // 
+            // comboBoxDiff
+            // 
+            this.comboBoxDiff.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "Diff", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDiff.FormattingEnabled = true;
+            this.comboBoxDiff.Items.AddRange(new object[] {
+            "Normal",
+            "Hard",
+            "Suicidal",
+            "Hell on Earth"});
+            this.comboBoxDiff.Location = new System.Drawing.Point(200, 30);
+            this.comboBoxDiff.Name = "comboBoxDiff";
+            this.comboBoxDiff.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxDiff.TabIndex = 6;
+            this.comboBoxDiff.Text = global::ServerApp.Properties.Settings.Default.Diff;
+            // 
+            // comboBoxMap
+            // 
+            this.comboBoxMap.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "Map", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxMap.FormattingEnabled = true;
+            this.comboBoxMap.Location = new System.Drawing.Point(6, 30);
+            this.comboBoxMap.Name = "comboBoxMap";
+            this.comboBoxMap.Size = new System.Drawing.Size(188, 21);
+            this.comboBoxMap.TabIndex = 5;
+            this.comboBoxMap.Text = global::ServerApp.Properties.Settings.Default.Map;
             // 
             // labelMap
             // 
@@ -652,6 +679,36 @@
             this.groupBoxPorts.TabIndex = 1;
             this.groupBoxPorts.TabStop = false;
             this.groupBoxPorts.Text = "Ports";
+            // 
+            // textBoxWB
+            // 
+            this.textBoxWB.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "WAPort", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxWB.Location = new System.Drawing.Point(5, 110);
+            this.textBoxWB.Name = "textBoxWB";
+            this.textBoxWB.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWB.TabIndex = 5;
+            this.textBoxWB.Text = global::ServerApp.Properties.Settings.Default.WAPort;
+            this.textBoxWB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumbers_KeyPress);
+            // 
+            // textBoxQP
+            // 
+            this.textBoxQP.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "QPort", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxQP.Location = new System.Drawing.Point(7, 70);
+            this.textBoxQP.Name = "textBoxQP";
+            this.textBoxQP.Size = new System.Drawing.Size(98, 20);
+            this.textBoxQP.TabIndex = 4;
+            this.textBoxQP.Text = global::ServerApp.Properties.Settings.Default.QPort;
+            this.textBoxQP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumbers_KeyPress);
+            // 
+            // textBoxPort
+            // 
+            this.textBoxPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "Port", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxPort.Location = new System.Drawing.Point(7, 31);
+            this.textBoxPort.Name = "textBoxPort";
+            this.textBoxPort.Size = new System.Drawing.Size(98, 20);
+            this.textBoxPort.TabIndex = 3;
+            this.textBoxPort.Text = global::ServerApp.Properties.Settings.Default.Port;
+            this.textBoxPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumbers_KeyPress);
             // 
             // labelWebAdminPort
             // 
@@ -721,69 +778,6 @@
             this.tabSA.SelectedIndex = 0;
             this.tabSA.Size = new System.Drawing.Size(616, 344);
             this.tabSA.TabIndex = 5;
-            // 
-            // comboBoxDiff
-            // 
-            this.comboBoxDiff.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "Diff", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboBoxDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDiff.FormattingEnabled = true;
-            this.comboBoxDiff.Items.AddRange(new object[] {
-            "Normal",
-            "Hard",
-            "Suicidal",
-            "Hell on Earth"});
-            this.comboBoxDiff.Location = new System.Drawing.Point(200, 30);
-            this.comboBoxDiff.Name = "comboBoxDiff";
-            this.comboBoxDiff.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxDiff.TabIndex = 6;
-            this.comboBoxDiff.Text = global::ServerApp.Properties.Settings.Default.Diff;
-            // 
-            // comboBoxMap
-            // 
-            this.comboBoxMap.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "Map", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboBoxMap.FormattingEnabled = true;
-            this.comboBoxMap.Items.AddRange(new object[] {
-            "KF-BurningParis",
-            "KF-Bioticslab",
-            "KF-Outpost",
-            "KF-VolterManor",
-            "KF-Catacombs",
-            "KF-EvacuationPoint"});
-            this.comboBoxMap.Location = new System.Drawing.Point(6, 30);
-            this.comboBoxMap.Name = "comboBoxMap";
-            this.comboBoxMap.Size = new System.Drawing.Size(188, 21);
-            this.comboBoxMap.TabIndex = 5;
-            this.comboBoxMap.Text = global::ServerApp.Properties.Settings.Default.Map;
-            // 
-            // textBoxWB
-            // 
-            this.textBoxWB.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "WAPort", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxWB.Location = new System.Drawing.Point(5, 110);
-            this.textBoxWB.Name = "textBoxWB";
-            this.textBoxWB.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWB.TabIndex = 5;
-            this.textBoxWB.Text = global::ServerApp.Properties.Settings.Default.WAPort;
-            this.textBoxWB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumbers_KeyPress);
-            // 
-            // textBoxQP
-            // 
-            this.textBoxQP.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "QPort", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxQP.Location = new System.Drawing.Point(7, 70);
-            this.textBoxQP.Name = "textBoxQP";
-            this.textBoxQP.Size = new System.Drawing.Size(98, 20);
-            this.textBoxQP.TabIndex = 4;
-            this.textBoxQP.Text = global::ServerApp.Properties.Settings.Default.QPort;
-            this.textBoxQP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumbers_KeyPress);
-            // 
-            // textBoxPort
-            // 
-            this.textBoxPort.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::ServerApp.Properties.Settings.Default, "Port", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxPort.Location = new System.Drawing.Point(7, 31);
-            this.textBoxPort.Name = "textBoxPort";
-            this.textBoxPort.Size = new System.Drawing.Size(98, 20);
-            this.textBoxPort.TabIndex = 3;
-            this.textBoxPort.Text = global::ServerApp.Properties.Settings.Default.Port;
-            this.textBoxPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumbers_KeyPress);
             // 
             // fmServerApp
             // 

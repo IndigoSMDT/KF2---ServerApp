@@ -132,17 +132,6 @@ namespace ServerApp
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            Serv = new Process();
-            Serv.StartInfo.UseShellExecute = false;
-            Serv.StartInfo.CreateNoWindow = true;
-            Serv.StartInfo.RedirectStandardInput = true;
-            Serv.StartInfo.RedirectStandardOutput = true;
-            Serv.StartInfo.FileName = ".\\kf2_ds\\Binaries\\win64\\kfserver.exe";
-            Serv.StartInfo.Arguments = comboBoxMap.Text + "?Difficulty=" + Diff + "?GameLength=" + Lenght +
-                    "?GamePassword=" + textBoxPass.Text + "?Port=" + textBoxPort.Text +
-                    "?QueryPort=" + textBoxQP.Text +
-                    "?WebAdminPort=" + textBoxWB.Text;
-
             switch (comboBoxDiff.Text)
             {
                 case "Normal":
@@ -176,6 +165,17 @@ namespace ServerApp
                     Lenght = "0";
                     break;
             }
+
+            Serv = new Process();
+            Serv.StartInfo.UseShellExecute = false;
+            Serv.StartInfo.CreateNoWindow = true;
+            Serv.StartInfo.RedirectStandardInput = true;
+            Serv.StartInfo.RedirectStandardOutput = true;
+            Serv.StartInfo.FileName = ".\\kf2_ds\\Binaries\\win64\\kfserver.exe";
+            Serv.StartInfo.Arguments = comboBoxMap.Text + "?Difficulty=" + Diff + "?GameLength=" + Lenght +
+                    "?GamePassword=" + textBoxPass.Text + "?Port=" + textBoxPort.Text +
+                    "?QueryPort=" + textBoxQP.Text +
+                    "?WebAdminPort=" + textBoxWB.Text;
             buttonStart.Enabled = false;
             buttonStop.Enabled = true;
             buttonWebAdmin.Enabled = true;
@@ -306,7 +306,13 @@ namespace ServerApp
 
         private void LoadInfo()
         {
-        INI KFGameini = new INI(".\\kf2_ds\\KFGame\\Config\\PCServer-KFGame.ini");
+            string[] allFoundFiles =
+Directory.GetFiles(Application.StartupPath + "\\kf2_ds\\KFGame\\BrewedPC\\Maps", "KF-*.kfm", SearchOption.AllDirectories);
+            foreach (string file in allFoundFiles)
+            {
+                comboBoxMap.Items.Add(Path.GetFileNameWithoutExtension(file));
+            }
+            INI KFGameini = new INI(".\\kf2_ds\\KFGame\\Config\\PCServer-KFGame.ini");
             textBoxSrvName.Text = KFGameini.IniReadValue("Engine.GameReplicationInfo", "ServerName");
             textBoxMxPl.Text = KFGameini.IniReadValue("Engine.GameInfo", "MaxPlayers");
             textBoxAdmPass.Text = KFGameini.IniReadValue("Engine.AccessControl", "AdminPassword");
@@ -387,8 +393,6 @@ namespace ServerApp
             writer.WriteLine(richTextBoxMap.Lines[2]);
             writer.WriteLine(richTextBoxMap.Lines[3]);
             writer.Close();
-            comboBoxMap.Items.Add(MapName);
-            CopyFile(CopyMap, Application.StartupPath + "\\kf2_ds\\KFGame\\BrewedPC\\Maps\\" + MapNameDisc);
         }
 
         private void toolStripMenuItemExt_Click(object sender, EventArgs e)
